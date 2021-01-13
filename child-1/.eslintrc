@@ -1,0 +1,40 @@
+env:
+  node: true
+  browser: true
+  es6: true
+extends:
+  - prettier/@typescript-eslint
+  - plugin:prettier/recommended
+  - plugin:vue/base
+  - prettier
+  - prettier/vue
+parserOptions:
+  parser: '@typescript-eslint/parser'
+  ecmaVersion: 2018
+  sourceType: module
+rules:
+  no-console: warn
+  no-debugger: warn
+  '@typescript-eslint/no-explicit-any': error
+  '@typescript-eslint/explicit-module-boundary-types': 'off'
+  '@typescript-eslint/no-unused-vars': error
+  vue/valid-v-slot: 'off'
+  prettier/prettier: error
+overrides:
+  -   plugins:
+        - '@typescript-eslint'
+        - jest
+        - cypress
+      files:
+        - src/**/*.spec.[jt]s?(x)
+        - tests/**/*
+      env:
+        jest: true
+        mocha: true
+        cypress/globals: true
+  -   files:
+        - '*.ts'
+        - '*.tsx'
+      rules:
+        '@typescript-eslint/explicit-module-boundary-types':
+          - error

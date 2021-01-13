@@ -1,0 +1,4 @@
+webpack/**/*.js
+webpack.config.js
+cypress.json
+*.js
